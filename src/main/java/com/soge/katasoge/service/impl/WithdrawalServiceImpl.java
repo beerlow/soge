@@ -43,7 +43,7 @@ public class WithdrawalServiceImpl implements WithdrawalService {
         }
         operation.setExecutedDate(new Date());
         operationRepository.save(operation);
-        account.setAmount(account.getAmount().subtract(operation.getAmount()));
+        account.setAmount(account.getAmount().add(operation.getAmount()));
         account = accountService.save(account);
 
         return account;
